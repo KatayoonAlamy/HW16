@@ -1,10 +1,12 @@
+import Cards from "./components/Cards";
+import Form from "./components/Form";
 import "./index.css";
 
 function App() {
   return (
     <>
-      <div>hii</div>
-      <p>ey baba</p>
+      <Form />
+      <Cards />
     </>
   );
 }
