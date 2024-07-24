@@ -1,18 +1,20 @@
 import React from "react";
 
-export default function Card() {
+export default function Card(props) {
+  const { name, family, number, relationship, email } = props;
   return (
     <div className="flex flex-col p-4 rounded-xl gap-3 bg-blue-900 text-white w-72">
       <div className="flex justify-between">
-        <p>name</p>
+        <p>{name}</p>
+        <p>{family}</p>
         <div className="flex gap-3">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <i class="fa-solid fa-trash"></i>
+          <i className="fa-solid fa-pen-to-square"></i>
+          <i className="fa-solid fa-trash"></i>
         </div>
       </div>
-      <p>09052966476</p>
-      <p>freind</p>
-      <p>katayoon.@gmail.com</p>
+      <p>{number}</p>
+      <p>{relationship}</p>
+      <p>{email}</p>
     </div>
   );
 }

@@ -1,6 +1,22 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { useFormik } from "formik";
+import AppContext from "../contexts/AppContext";
 export default function Form() {
+  const { handleChangeContacts, ContactData } = useContext(AppContext);
+  const emailVerifiction = new RegExp("^[w-.]+@([w-]+.)+[w-]{2,4}$");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      family: "",
+      number: Number(0),
+      relationship: "",
+      email: emailVerifiction.test(""),
+    },
+
+    onSubmit: (values) => {
+      handleChangeContacts([...ContactData, {}]);
+    },
+  });
   return (
     <div className="flex flex-col items-center gap-6 p-6">
       <h1 className=" text-2xl font-bold">وب اپلیکیشن مدیریت مخاطبین</h1>
