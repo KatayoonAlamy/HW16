@@ -10,7 +10,7 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 export default function CardWrapper() {
   const [page, setPage] = useState(1);
-  const { error, data, isFetching, refetch, isFetched } = getContactList({
+  const { error, data, isFetching, refetch } = getContactList({
     _page: page,
     _limit: 5,
   });

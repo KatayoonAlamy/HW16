@@ -6,6 +6,8 @@ export function getContactList(params) {
 
   return useQuery({
     queryKey: ["contacts"],
+    keepPreviousData: true,
+    staleTime: 5000,
     queryFn: async () => {
       const response = await fetch(
         endPoint + "/contacts" + "?" + queryStr.toString()
