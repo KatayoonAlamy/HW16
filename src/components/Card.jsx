@@ -1,15 +1,17 @@
 import React, { useContext, useId } from "react";
-import AppContext from "../contexts/AppContext";
-
+import { getContactList } from "../utils/ApiCalls";
+import Swal from "sweetalert2";
+// import AppContext from "../contexts/AppContext";
 export default function Card(props) {
-  const { name, family, number, relationship, email, id } = props;
-  const { handleChangeContacts, ContactData } = useContext(AppContext);
-
+  const { name, family, number, relationship, email } = props;
+  // const { handleChangeContacts, ContactData } = useContext(AppContext);
+  // const { refetch } = getContactList();
   function handleDeleteContact() {
-    handleChangeContacts(ContactData.filter((item) => item.id != id));
+    props.onDelete && props.onDelete();
+    // handleChangeContacts(ContactData.filter((item) => item.id != id));
   }
   return (
-    <div className="flex flex-col p-4 rounded-xl gap-3 bg-blue-900 text-white w-72">
+    <div className="flex mt-4 flex-col p-4 rounded-xl gap-3 bg-blue-900 text-white w-72">
       <div className="flex justify-between">
         <p>{name}</p>
         <p>{family}</p>
